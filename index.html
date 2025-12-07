@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cherry Hill of Morocco - Business Plan Analysis</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.bundle.js"></script>
+    <style>
+        :root {
+            --primary: #722F37;
+            --primary-light: #8B3A42;
+            --secondary: #4A7C59;
+            --secondary-light: #5C9A6E;
+            --accent: #D4A574;
+            --dark: #2C3E50;
+            --light: #F8F9FA;
+            --white: #FFFFFF;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(114, 47, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        .header .date {
+            margin-top: 15px;
+            font-size: 0.95rem;
+            opacity: 0.8;
+            position: relative;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(74, 124, 89, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 124, 89, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Section Styles */
+        .section {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .section-number {
+            background: var(--primary);
+            color: var(--white);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .section h2 {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .section h3 {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin: 25px 0 15px 0;
+            padding-left: 15px;
+            border-left: 4px solid var(--secondary);
+        }
+
+        .section h4 {
+            color: var(--dark);
+            font-size: 1.05rem;
+            margin: 20px 0 10px 0;
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        tr:hover {
+            background: var(--light);
+        }
+
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        tr:nth-child(even):hover {
+            background: var(--light);
+        }
+
+        .table-total {
+            font-weight: bold;
+            background: var(--light) !important;
+        }
+
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .kpi-card.success {
+            border-left-color: var(--secondary);
+        }
+
+        .kpi-card.accent {
+            border-left-color: var(--accent);
+        }
+
+        .kpi-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .kpi-card.success .kpi-value {
+            color: var(--secondary);
+        }
+
+        .kpi-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+            border-left: 4px solid var(--accent);
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin: 20px 0;
+        }
+
+        .highlight-box.info {
+            background: linear-gradient(135deg, #e7f3ff 0%, #cce5ff 100%);
+            border-left-color: #0066cc;
+        }
+
+        .highlight-box.success {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-left-color: var(--secondary);
+        }
+
+        .highlight-box.warning {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-left-color: #ff9800;
+        }
+
+        .highlight-box.danger {
+            background: linear-gradient(135deg, #ffebee 0%, #ffcdd2 100%);
+            border-left-color: #dc3545;
+        }
+
+        /* Risk Matrix */
+        .risk-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .risk-high {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .risk-medium {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .risk-low {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 15px 0 15px 25px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin: 15px 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .progress-bar {
+            height: 25px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: width 0.5s ease;
+        }
+
+        .progress-fill.primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+        }
+
+        .progress-fill.secondary {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--secondary-light) 100%);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+            }
+            .action-buttons {
+                display: none;
+            }
+            .section {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--light-gray);
+            }
+        }
+
+        /* Loading Overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loading-content {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid var(--light-gray);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--secondary);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Generating presentation...</p>
+        </div>
+    </div>
+
+    <div class="toast" id="toast">Presentation downloaded successfully!</div>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🌿 Cherry Hill of Morocco</h1>
+            <p class="subtitle">Comprehensive Business Plan Analysis - Onion & Garlic Agro-Industrial Project (500 ha)</p>
+            <p class="date">Analysis Date: December 7, 2025 | Document Date: November 27, 2025</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="btn btn-primary" onclick="generateGoogleSlides()">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.5 3h-15A1.5 1.5 0 003 4.5v15A1.5 1.5 0 004.5 21h15a1.5 1.5 0 001.5-1.5v-15A1.5 1.5 0 0019.5 3zm-9 15H6v-4.5h4.5V18zm0-6H6v-4.5h4.5V12zm6 6h-4.5v-4.5H16.5V18zm0-6h-4.5v-4.5H16.5V12z"/></svg>
+                Export to Google Slides (PPTX)
+            </button>
+            <button class="btn btn-secondary" onclick="window.print()">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                Print / Save as PDF
+            </button>
+        </div>
+
+        <!-- Section 1: Executive Summary -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">1</span>
+                <h2>Executive Summary</h2>
+            </div>
+            <p>Cherry Hill of Morocco is developing an integrated agro-industrial project focused on the valorization of onion and garlic value chains in Morocco. The project represents a strategic investment across three complementary pillars: agricultural production on 500 hectares, an agro-industrial processing unit, and cold storage infrastructure with 30,000-tonne capacity.</p>
+            
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value">294.04 M</div>
+                    <div class="kpi-label">Total Investment (DH TTC)</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-value">24%</div>
+                    <div class="kpi-label">Internal Rate of Return (IRR)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">648.7 M</div>
+                    <div class="kpi-label">Net Present Value (DH)</div>
+                </div>
+                <div class="kpi-card accent">
+                    <div class="kpi-value">4 Years</div>
+                    <div class="kpi-label">Payback Period</div>
+                </div>
+            </div>
+
+            <div class="highlight-box success">
+                <strong>Key Value Proposition:</strong> The business model combines fresh produce sales (domestic and export) with value-added transformation into onion and garlic powder, targeting both national and international markets. Transformation products represent 59.3% of total revenue despite using only 50% of raw production.
+            </div>
+        </div>
+
+        <!-- Section 2: Project Overview -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">2</span>
+                <h2>Project Overview</h2>
+            </div>
+
+            <h3>2.1 Strategic Vision</h3>
+            <p>The project aims to establish a reference agro-industrial platform founded on three principles:</p>
+            <ul>
+                <li>Operational excellence</li>
+                <li>Environmental sustainability</li>
+                <li>Positive social impact</li>
+            </ul>
+
+            <h3>2.2 Geographic Location</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Attribute</th><th>Details</th></tr>
+                    <tr><td>Industrial Site</td><td>Agropolis Meknès, Parcel GI07</td></tr>
+                    <tr><td>Land Area (Industrial)</td><td>6.16 hectares (61,600 m²)</td></tr>
+                    <tr><td>Agricultural Site</td><td>Communes of Sidi Slimane Moul Kifane and Majjate</td></tr>
+                    <tr><td>Partner</td><td>MEDZ (land acquisition)</td></tr>
+                </table>
+            </div>
+
+            <h4>Strategic Advantages:</h4>
+            <ul>
+                <li>Direct access to Rabat-Fès highway</li>
+                <li>Connectivity via National Route N°6</li>
+                <li>Proximity to École Nationale d'Agriculture</li>
+                <li>Proximity to INRA Regional Research Center</li>
+                <li>Access to railway network</li>
+                <li>Near Fès-Saïs Airport</li>
+            </ul>
+
+            <h3>2.3 Project Components</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Agricultural Production</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><th>Crop</th><th>Area (ha)</th><th>Purpose</th></tr>
+                            <tr><td>Onion</td><td>400</td><td>Fresh sales + Transformation</td></tr>
+                            <tr><td>Garlic</td><td>100</td><td>Fresh sales + Transformation</td></tr>
+                            <tr class="table-total"><td>Total</td><td>500</td><td></td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h4>Industrial Infrastructure</h4>
+                    <ul>
+                        <li>Modern transformation unit for powder production</li>
+                        <li>Conditioning station meeting international standards</li>
+                        <li>Cold storage facility (30,000 tonnes capacity)</li>
+                        <li>Onion chips processing line</li>
+                        <li>Packaging equipment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3>2.4 Varieties Selected</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Product</th><th>Varieties</th></tr>
+                    <tr><td>Onion</td><td>Jaune, Darko, Red Lady</td></tr>
+                    <tr><td>Garlic</td><td>Ail Blanc, Ail Violet, Printanor</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 3: Investment Analysis -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">3</span>
+                <h2>Investment Analysis</h2>
+            </div>
+
+            <h3>3.1 Total Investment Summary</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Category</th><th>Cost HT (DH)</th><th>Cost TTC (DH)</th><th>% of Total</th></tr>
+                    <tr><td>Technical Studies & Consulting</td><td>4,200,000</td><td>5,040,000</td><td>1.7%</td></tr>
+                    <tr><td>Agro-Industry</td><td>177,837,000</td><td>213,404,400</td><td>72.6%</td></tr>
+                    <tr><td>Agricultural Production</td><td>63,000,000</td><td>75,600,000</td><td>25.7%</td></tr>
+                    <tr class="table-total"><td>TOTAL</td><td>245,037,000</td><td>294,044,400</td><td>100%</td></tr>
+                </table>
+            </div>
+
+            <h4>Investment Distribution</h4>
+            <div class="progress-container">
+                <div class="progress-label"><span>Agro-Industry</span><span>72.6%</span></div>
+                <div class="progress-bar"><div class="progress-fill primary" style="width: 72.6%">213.4 M DH</div></div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-label"><span>Agricultural Production</span><span>25.7%</span></div>
+                <div class="progress-bar"><div class="progress-fill secondary" style="width: 25.7%">75.6 M DH</div></div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-label"><span>Technical Studies</span><span>1.7%</span></div>
+                <div class="progress-bar"><div class="progress-fill primary" style="width: 10%">5.04 M DH</div></div>
+            </div>
+
+            <h3>3.2 Industrial Zone Breakdown (190.29 M DH TTC)</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Item</th><th>Amount HT (DH)</th></tr>
+                    <tr><td>Cold storage (30,000 T capacity)</td><td>60,000,000</td></tr>
+                    <tr><td>Industrial unit construction</td><td>37,500,000</td></tr>
+                    <tr><td>Onion/garlic powder transformation line</td><td>28,000,000</td></tr>
+                    <tr><td>Energy infrastructure</td><td>8,000,000</td></tr>
+                    <tr><td>Packaging equipment</td><td>7,000,000</td></tr>
+                    <tr><td>Onion chips transformation line</td><td>6,400,000</td></tr>
+                    <tr><td>Administrative equipment, lab & software</td><td>4,767,000</td></tr>
+                    <tr><td>Machinery (forklifts, trucks, etc.)</td><td>3,700,000</td></tr>
+                    <tr><td>Weighbridge, fencing & exterior</td><td>3,210,000</td></tr>
+                </table>
+            </div>
+
+            <h3>3.3 Depreciation Schedule</h3>
+            <p>All assets are depreciated linearly over <strong>10 years</strong>:</p>
+            <div class="table-container">
+                <table>
+                    <tr><th>Category</th><th>Annual Depreciation (DH)</th></tr>
+                    <tr><td>Technical Studies & Consulting</td><td>504,000</td></tr>
+                    <tr><td>Agro-Industry</td><td>21,340,440</td></tr>
+                    <tr><td>Agricultural Production (Year 1-2)</td><td>7,560,000</td></tr>
+                    <tr class="table-total"><td>Total Year 1-2</td><td>29,404,440</td></tr>
+                    <tr class="table-total"><td>Total Year 3-10</td><td>22,348,440</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 4: Production & Revenue Model -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">4</span>
+                <h2>Production & Revenue Model</h2>
+            </div>
+
+            <h3>4.1 Yield Assumptions</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Product</th><th>Area (ha)</th><th>Yield (T/ha)</th><th>Total Production (T)</th></tr>
+                    <tr><td>Onion</td><td>400</td><td>80</td><td>32,000</td></tr>
+                    <tr><td>Garlic</td><td>100</td><td>17</td><td>1,700</td></tr>
+                </table>
+            </div>
+
+            <h3>4.2 Product Distribution Strategy</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Onion Distribution (32,000 T)</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><th>Channel</th><th>%</th><th>Volume (T)</th></tr>
+                            <tr><td>Fresh - Local Market</td><td>20%</td><td>6,400</td></tr>
+                            <tr><td>Fresh - Export Market</td><td>30%</td><td>9,600</td></tr>
+                            <tr><td>Transformation (Powder)*</td><td>50%</td><td>1,440</td></tr>
+                        </table>
+                    </div>
+                    <p><small>*Conversion rate: 9%</small></p>
+                </div>
+                <div>
+                    <h4>Garlic Distribution (1,700 T)</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><th>Channel</th><th>%</th><th>Volume (T)</th></tr>
+                            <tr><td>Fresh - Local Market</td><td>50%</td><td>850</td></tr>
+                            <tr><td>Transformation (Powder)*</td><td>50%</td><td>85</td></tr>
+                        </table>
+                    </div>
+                    <p><small>*Conversion rate: 10%</small></p>
+                </div>
+            </div>
+
+            <h3>4.3 Revenue Structure</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Product</th><th>Unit Price (DH/T)</th><th>Volume (T)</th><th>Annual Revenue (DH)</th><th>% of Total</th></tr>
+                    <tr><td>Onion powder</td><td>110,000</td><td>1,440</td><td>158,400,000</td><td>56.0%</td></tr>
+                    <tr><td>Fresh onion - Export</td><td>8,000</td><td>9,600</td><td>76,800,000</td><td>27.2%</td></tr>
+                    <tr><td>Fresh garlic - Local</td><td>30,000</td><td>850</td><td>25,500,000</td><td>9.0%</td></tr>
+                    <tr><td>Fresh onion - Local</td><td>2,000</td><td>6,400</td><td>12,800,000</td><td>4.5%</td></tr>
+                    <tr><td>Garlic powder</td><td>110,000</td><td>85</td><td>9,350,000</td><td>3.3%</td></tr>
+                    <tr class="table-total"><td>TOTAL</td><td></td><td></td><td>282,850,000</td><td>100%</td></tr>
+                </table>
+            </div>
+
+            <div class="highlight-box info">
+                <strong>Key Insight:</strong> Transformation products (powder) represent <strong>59.3%</strong> of total revenue despite using only 50% of raw production, demonstrating significant value addition through processing.
+            </div>
+
+            <h3>4.4 Production Timeline</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Year</th><th>Production Status</th><th>Revenue</th></tr>
+                    <tr><td>Year 1</td><td>Infrastructure development - No production</td><td>0 DH</td></tr>
+                    <tr><td>Year 2-10</td><td>Full production capacity</td><td>282,850,000 DH/year</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 5: Cost Structure -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">5</span>
+                <h2>Cost Structure Analysis</h2>
+            </div>
+
+            <h3>5.1 Agricultural Operating Costs</h3>
+            <div class="two-column">
+                <div>
+                    <h4>Onion Production (400 ha) - 19.6 M DH</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><th>Item</th><th>DH/ha</th><th>Total (DH)</th></tr>
+                            <tr><td>Fertilizers</td><td>11,000</td><td>4,400,000</td></tr>
+                            <tr><td>Drip irrigation tubing</td><td>10,000</td><td>4,000,000</td></tr>
+                            <tr><td>Phytosanitary treatment</td><td>10,000</td><td>4,000,000</td></tr>
+                            <tr><td>Seeds</td><td>8,000</td><td>3,200,000</td></tr>
+                            <tr><td>Agricultural operations</td><td>6,000</td><td>2,400,000</td></tr>
+                            <tr><td>Labor</td><td>4,000</td><td>1,600,000</td></tr>
+                            <tr class="table-total"><td>Total</td><td>49,000</td><td>19,600,000</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    <h4>Garlic Production (100 ha) - 4.9 M DH</h4>
+                    <div class="table-container">
+                        <table>
+                            <tr><th>Item</th><th>DH/ha</th><th>Total (DH)</th></tr>
+                            <tr><td>Fertilizers</td><td>11,000</td><td>1,100,000</td></tr>
+                            <tr><td>Drip irrigation tubing</td><td>10,000</td><td>1,000,000</td></tr>
+                            <tr><td>Phytosanitary treatment</td><td>10,000</td><td>1,000,000</td></tr>
+                            <tr><td>Seeds</td><td>8,000</td><td>800,000</td></tr>
+                            <tr><td>Agricultural operations</td><td>6,000</td><td>600,000</td></tr>
+                            <tr><td>Labor</td><td>4,000</td><td>400,000</td></tr>
+                            <tr class="table-total"><td>Total</td><td>49,000</td><td>4,900,000</td></tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <h3>5.2 Industrial Processing Costs - 38.86 M DH</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Item</th><th>Unit Cost (DH/T)</th><th>Volume (T)</th><th>Total (DH)</th></tr>
+                    <tr><td colspan="4"><strong>Fresh Onion Export</strong></td></tr>
+                    <tr><td>- Transport</td><td>1,500</td><td>9,600</td><td>14,400,000</td></tr>
+                    <tr><td>- Miscellaneous</td><td>500</td><td>9,600</td><td>4,800,000</td></tr>
+                    <tr><td>- Packaging</td><td>300</td><td>9,600</td><td>2,880,000</td></tr>
+                    <tr><td colspan="4"><strong>Onion Powder Production</strong></td></tr>
+                    <tr><td>- Energy, hygiene, labor, packaging</td><td>11,000</td><td>1,440</td><td>15,840,000</td></tr>
+                    <tr><td colspan="4"><strong>Garlic Powder Production</strong></td></tr>
+                    <tr><td>- Energy, hygiene, labor, packaging</td><td>11,000</td><td>85</td><td>935,000</td></tr>
+                    <tr class="table-total"><td>TOTAL</td><td></td><td></td><td>38,855,000</td></tr>
+                </table>
+            </div>
+
+            <h3>5.3 Fixed Overhead Costs - 3.25 M DH</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Item</th><th>Annual Cost (DH)</th></tr>
+                    <tr><td>Agricultural land rental</td><td>2,000,000</td></tr>
+                    <tr><td>Taxes and insurance</td><td>600,000</td></tr>
+                    <tr><td>Salaries</td><td>372,000</td></tr>
+                    <tr><td>Social charges</td><td>115,892</td></tr>
+                    <tr><td>Services and maintenance</td><td>100,000</td></tr>
+                    <tr><td>Bonuses and allowances</td><td>57,231</td></tr>
+                    <tr class="table-total"><td>TOTAL</td><td>3,245,123</td></tr>
+                </table>
+            </div>
+
+            <h3>5.4 Human Resources</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Position</th><th>Headcount</th><th>Annual Payroll (DH)</th></tr>
+                    <tr><td>Permanent workers</td><td>67</td><td>2,000,000</td></tr>
+                    <tr><td>Technicians & vocational graduates</td><td>8</td><td>72,000</td></tr>
+                    <tr><td>Engineers & senior executives</td><td>5</td><td>150,000</td></tr>
+                    <tr class="table-total"><td>TOTAL</td><td>80</td><td>2,222,000</td></tr>
+                </table>
+            </div>
+
+            <h3>5.5 Total Annual Operating Costs Summary</h3>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value">24.5 M</div>
+                    <div class="kpi-label">Agricultural Production (36.8%)</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-value">38.9 M</div>
+                    <div class="kpi-label">Industrial Processing (58.4%)</div>
+                </div>
+                <div class="kpi-card accent">
+                    <div class="kpi-value">3.2 M</div>
+                    <div class="kpi-label">Fixed Overhead (4.9%)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">66.6 M</div>
+                    <div class="kpi-label">Total Operating Costs</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 6: Financial Performance -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">6</span>
+                <h2>Financial Performance Indicators</h2>
+            </div>
+
+            <h3>6.1 Key Metrics Summary</h3>
+            <div class="kpi-grid">
+                <div class="kpi-card success">
+                    <div class="kpi-value">24%</div>
+                    <div class="kpi-label">Internal Rate of Return (IRR)</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value">648.7 M</div>
+                    <div class="kpi-label">Net Present Value (DH)</div>
+                </div>
+                <div class="kpi-card accent">
+                    <div class="kpi-value">4 Years</div>
+                    <div class="kpi-label">Payback Period</div>
+                </div>
+                <div class="kpi-card success">
+                    <div class="kpi-value">282.9 M</div>
+                    <div class="kpi-label">Annual Turnover (Year 2+)</div>
+                </div>
+            </div>
+
+            <h3>6.2 Projected Income Statement Summary</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Item</th><th>Year 1</th><th>Year 2</th><th>Years 3-10 (each)</th></tr>
+                    <tr><td>Total Revenue</td><td>0</td><td>282,850,000</td><td>282,850,000</td></tr>
+                    <tr><td>Cost of Sales</td><td>63,355,000</td><td>63,355,000</td><td>63,355,000</td></tr>
+                    <tr><td>Gross Margin</td><td>-63,355,000</td><td>219,495,000</td><td>219,495,000</td></tr>
+                    <tr><td>G&A Expenses</td><td>3,172,440</td><td>3,172,440</td><td>3,245,123</td></tr>
+                    <tr><td>Operating Margin</td><td>-66,527,440</td><td>216,322,560</td><td>216,249,877</td></tr>
+                    <tr><td>Depreciation</td><td>29,404,440</td><td>22,348,440</td><td>22,348,440</td></tr>
+                    <tr><td>Financial Result</td><td>-95,931,880</td><td>193,974,120</td><td>193,901,437</td></tr>
+                    <tr class="table-total"><td>Net Result After Tax</td><td>-95,931,880</td><td>126,083,178</td><td>126,035,934</td></tr>
+                </table>
+            </div>
+
+            <h3>6.3 Cash Flow Analysis</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Year</th><th>Cash Flow (DH)</th><th>Discounted CF (DH)</th><th>Cumulative DCF (DH)</th></tr>
+                    <tr><td>0 (Investment)</td><td>-294,044,400</td><td>-294,044,400</td><td>-294,044,400</td></tr>
+                    <tr><td>1</td><td>-66,527,440</td><td>-66,527,440</td><td>-360,571,840</td></tr>
+                    <tr><td>2</td><td>148,431,618</td><td>140,029,828</td><td>-220,542,012</td></tr>
+                    <tr><td>3</td><td>148,384,374</td><td>132,061,565</td><td>-88,480,447</td></tr>
+                    <tr style="background: #c8e6c9;"><td>4</td><td>148,384,374</td><td>124,586,382</td><td>36,105,935</td></tr>
+                    <tr><td>5</td><td>148,384,374</td><td>117,534,322</td><td>153,640,257</td></tr>
+                    <tr><td>6-10</td><td>148,384,374/yr</td><td>Declining</td><td>648,737,580</td></tr>
+                </table>
+            </div>
+            <p><em>Note: Payback achieved in Year 4 (highlighted in green)</em></p>
+
+            <h3>6.4 Profitability Ratios</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Ratio</th><th>Value</th></tr>
+                    <tr><td>Gross Margin Rate</td><td>77.6%</td></tr>
+                    <tr><td>Operating Margin Rate</td><td>76.5%</td></tr>
+                    <tr><td>Net Margin Rate (after tax)</td><td>44.6%</td></tr>
+                    <tr><td>Return on Investment (ROI)</td><td>42.9%</td></tr>
+                    <tr><td>Cost of Sales / Revenue</td><td>22.4%</td></tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- Section 7: Financing Structure -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">7</span>
+                <h2>Financing Structure</h2>
+            </div>
+
+            <h3>7.1 Capital Structure</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Source</th><th>Amount (DH)</th><th>Percentage</th></tr>
+                    <tr><td>Equity (Capital propre)</td><td>58,808,880</td><td>20%</td></tr>
+                    <tr><td>Debt (Capital emprunté)</td><td>235,235,520</td><td>80%</td></tr>
+                    <tr class="table-total"><td>Total</td><td>294,044,400</td><td>100%</td></tr>
+                </table>
+            </div>
+
+            <div class="progress-container">
+                <div class="progress-label"><span>Debt Financing</span><span>80%</span></div>
+                <div class="progress-bar"><div class="progress-fill primary" style="width: 80%">235.2 M DH</div></div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-label"><span>Equity Financing</span><span>20%</span></div>
+                <div class="progress-bar"><div class="progress-fill secondary" style="width: 20%">58.8 M DH</div></div>
+            </div>
+
+            <h3>7.2 Government Incentive</h3>
+            <div class="highlight-box success">
+                <strong>Important:</strong> The business plan indicates that <strong>16% of the total investment</strong> will be reimbursed to the investor upon complete project realization. This represents approximately <strong>47,047,104 DH</strong> in government subsidies/incentives.
+            </div>
+        </div>
+
+        <!-- Section 8: Risk Assessment -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">8</span>
+                <h2>Risk Assessment & Critical Observations</h2>
+            </div>
+
+            <h3>8.1 Assumptions Requiring Validation</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Assumption</th><th>Stated Value</th><th>Risk Level</th><th>Commentary</th></tr>
+                    <tr>
+                        <td>Onion yield</td>
+                        <td>80 T/ha</td>
+                        <td><span class="risk-badge risk-medium">Medium</span></td>
+                        <td>High yield assumption; industry average is 40-60 T/ha</td>
+                    </tr>
+                    <tr>
+                        <td>Garlic yield</td>
+                        <td>17 T/ha</td>
+                        <td><span class="risk-badge risk-low">Low</span></td>
+                        <td>Reasonable for irrigated production</td>
+                    </tr>
+                    <tr>
+                        <td>Export price (onion)</td>
+                        <td>8,000 DH/T</td>
+                        <td><span class="risk-badge risk-medium">Medium</span></td>
+                        <td>Market-dependent; requires validated offtake agreements</td>
+                    </tr>
+                    <tr>
+                        <td>Powder price</td>
+                        <td>110,000 DH/T</td>
+                        <td><span class="risk-badge risk-high">High</span></td>
+                        <td>Premium pricing; requires market validation</td>
+                    </tr>
+                    <tr>
+                        <td>Conversion rate (onion→powder)</td>
+                        <td>9%</td>
+                        <td><span class="risk-badge risk-low">Low</span></td>
+                        <td>Industry standard 8-12%</td>
+                    </tr>
+                    <tr>
+                        <td>Full capacity from Year 2</td>
+                        <td>100%</td>
+                        <td><span class="risk-badge risk-high">High</span></td>
+                        <td>Aggressive ramp-up assumption</td>
+                    </tr>
+                </table>
+            </div>
+
+            <h3>8.2 Market Risks</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Risk</th><th>Description</th><th>Mitigation</th></tr>
+                    <tr><td>Price Volatility</td><td>Onion/garlic prices highly volatile globally</td><td>Diversified product mix (fresh + transformed)</td></tr>
+                    <tr><td>Export Market Access</td><td>Dependent on maintaining export quality standards</td><td>Investment in quality infrastructure</td></tr>
+                    <tr><td>Competition</td><td>Established competitors in powder market</td><td>Focus on quality certifications (ISO, organic)</td></tr>
+                    <tr><td>Currency Risk</td><td>Export revenues exposed to exchange rate fluctuations</td><td>Consider hedging strategies</td></tr>
+                </table>
+            </div>
+
+            <h3>8.3 Operational Risks</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Risk</th><th>Description</th><th>Mitigation</th></tr>
+                    <tr><td>Weather/Climate</td><td>Drought, flooding affecting yields</td><td>Drip irrigation infrastructure</td></tr>
+                    <tr><td>Pest/Disease</td><td>Crop losses from pest outbreaks</td><td>Phytosanitary treatment budget allocated</td></tr>
+                    <tr><td>Water Availability</td><td>Groundwater depletion in region</td><td>Well infrastructure; water management</td></tr>
+                    <tr><td>Labor Shortage</td><td>Seasonal labor availability</td><td>Mix of permanent (80) and temporary workers</td></tr>
+                </table>
+            </div>
+
+            <h3>8.4 Financial Risks</h3>
+            <div class="highlight-box warning">
+                <strong>Key Financial Risks:</strong>
+                <ul>
+                    <li><strong>High Leverage:</strong> 80% debt financing increases financial risk</li>
+                    <li><strong>Year 1 Loss:</strong> -95.9M DH operating loss requires adequate reserves</li>
+                    <li><strong>Working Capital:</strong> Not explicitly addressed in documentation</li>
+                    <li><strong>Interest Rate Risk:</strong> Debt servicing costs not shown in projections</li>
+                </ul>
+            </div>
+
+            <h3>8.5 Critical Observations</h3>
+            <div class="highlight-box danger">
+                <strong>Missing Elements:</strong>
+                <ul>
+                    <li>Detailed debt service schedule (interest payments, principal repayment)</li>
+                    <li>Working capital requirements</li>
+                    <li>Sensitivity analysis</li>
+                    <li>Detailed market study for powder pricing validation</li>
+                    <li>Competitor analysis</li>
+                    <li>Offtake agreements/Letters of Intent</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box warning">
+                <strong>Optimistic Assumptions:</strong>
+                <ul>
+                    <li>Year 2 immediately achieves 100% production capacity</li>
+                    <li>No revenue growth or inflation factored over 10 years</li>
+                    <li>Static pricing over entire projection period</li>
+                    <li>No provision for crop failures or yield variations</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Section 9: Recommendations -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">9</span>
+                <h2>Recommendations</h2>
+            </div>
+
+            <h3>9.1 For Investors</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Priority</th><th>Recommendation</th></tr>
+                    <tr><td><span class="risk-badge risk-high">High</span></td><td>Request detailed debt service schedule to understand true cash available for distribution</td></tr>
+                    <tr><td><span class="risk-badge risk-high">High</span></td><td>Validate powder pricing with market study and potential offtake agreements</td></tr>
+                    <tr><td><span class="risk-badge risk-high">High</span></td><td>Request sensitivity analysis on key variables (yield, price, production ramp-up)</td></tr>
+                    <tr><td><span class="risk-badge risk-medium">Medium</span></td><td>Clarify the 16% government reimbursement terms and conditions</td></tr>
+                    <tr><td><span class="risk-badge risk-medium">Medium</span></td><td>Review detailed working capital requirements</td></tr>
+                    <tr><td><span class="risk-badge risk-low">Low</span></td><td>Consider phased investment approach to de-risk</td></tr>
+                </table>
+            </div>
+
+            <h3>9.2 For Project Sponsors</h3>
+            <div class="table-container">
+                <table>
+                    <tr><th>Priority</th><th>Recommendation</th></tr>
+                    <tr><td><span class="risk-badge risk-high">High</span></td><td>Secure pre-sales agreements for powder production</td></tr>
+                    <tr><td><span class="risk-badge risk-high">High</span></td><td>Obtain water rights and environmental permits</td></tr>
+                    <tr><td><span class="risk-badge risk-high">High</span></td><td>Develop detailed construction and commissioning timeline</td></tr>
+                    <tr><td><span class="risk-badge risk-medium">Medium</span></td><td>Establish quality certification roadmap (GlobalGAP, ISO, etc.)</td></tr>
+                    <tr><td><span class="risk-badge risk-medium">Medium</span></td><td>Create risk mitigation fund for Year 1-2 operational contingencies</td></tr>
+                    <tr><td><span class="risk-badge risk-low">Low</span></td><td>Explore crop insurance options</td></tr>
+                </table>
+            </div>
+
+            <h3>9.3 Strategic Recommendations</h3>
+            <div class="two-column">
+                <div class="highlight-box info">
+                    <strong>1. Diversification</strong><br>
+                    Consider adding storage-as-a-service revenue stream from the 30,000T cold storage facility
+                </div>
+                <div class="highlight-box info">
+                    <strong>2. Vertical Integration</strong><br>
+                    Explore retail packaging for local market to capture higher margins
+                </div>
+                <div class="highlight-box info">
+                    <strong>3. Export Strategy</strong><br>
+                    Prioritize EU market entry with appropriate certifications
+                </div>
+                <div class="highlight-box info">
+                    <strong>4. Sustainability</strong><br>
+                    Implement renewable energy (solar) to reduce energy costs and enhance ESG profile
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 10: Conclusion -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-number">10</span>
+                <h2>Conclusion</h2>
+            </div>
+
+            <p>The Cherry Hill of Morocco onion and garlic project presents a <strong>compelling investment opportunity</strong> with strong fundamentals:</p>
+
+            <div class="two-column">
+                <div class="highlight-box success">
+                    <strong>✓ Strengths:</strong>
+                    <ul>
+                        <li>Strategic location with excellent logistics</li>
+                        <li>Integrated value chain (production → transformation → storage)</li>
+                        <li>Strong financial returns (24% IRR, 648M DH NPV)</li>
+                        <li>Diversified revenue streams</li>
+                        <li>Government support (16% reimbursement)</li>
+                    </ul>
+                </div>
+                <div class="highlight-box warning">
+                    <strong>⚠ Challenges:</strong>
+                    <ul>
+                        <li>High initial capital requirement (294M DH)</li>
+                        <li>Aggressive production assumptions</li>
+                        <li>Market price validation needed for powder products</li>
+                        <li>High leverage (80% debt)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight-box info" style="margin-top: 25px;">
+                <strong>Overall Assessment:</strong> The project is financially viable with attractive returns, but success depends on achieving the projected yields and securing market access for transformed products at the assumed prices. Investors should conduct additional due diligence on market validation and consider negotiating milestone-based investment tranches.
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Analysis prepared based on business plan documentation dated November 27, 2025</p>
+            <p>Generated on December 7, 2025 | Cherry Hill of Morocco - Confidential</p>
+        </div>
+    </div>
+
+    <script>
+        function generateGoogleSlides() {
+            // Show loading overlay
+            document.getElementById('loadingOverlay').style.display = 'flex';
+
+            // Create new presentation
+            let pptx = new PptxGenJS();
+            pptx.author = 'Business Analysis Team';
+            pptx.title = 'Cherry Hill of Morocco - Business Plan Analysis';
+            pptx.subject = 'Onion & Garlic Agro-Industrial Project';
+            pptx.company = 'Cherry Hill of Morocco';
+
+            // Define colors
+            const PRIMARY = '722F37';
+            const SECONDARY = '4A7C59';
+            const DARK = '2C3E50';
+            const WHITE = 'FFFFFF';
+            const LIGHT = 'F8F9FA';
+
+            // Slide 1: Title Slide
+            let slide1 = pptx.addSlide();
+            slide1.addShape(pptx.shapes.RECTANGLE, { x: 0, y: 0, w: '100%', h: '100%', fill: { color: PRIMARY } });
+            slide1.addText('Cherry Hill of Morocco', { x: 0.5, y: 2, w: '90%', h: 1, fontSize: 44, color: WHITE, bold: true });
+            slide1.addText('Comprehensive Business Plan Analysis\nOnion & Garlic Agro-Industrial Project (500 ha)', { x: 0.5, y: 3.2, w: '90%', h: 1, fontSize: 24, color: WHITE });
+            slide1.addText('December 7, 2025', { x: 0.5, y: 5, w: '90%', h: 0.5, fontSize: 16, color: WHITE });
+
+            // Slide 2: Executive Summary
+            let slide2 = pptx.addSlide();
+            slide2.addText('Executive Summary', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide2.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+            
+            // KPI boxes
+            const kpis = [
+                { label: 'Total Investment', value: '294.04 M DH', x: 0.5 },
+                { label: 'IRR', value: '24%', x: 2.8 },
+                { label: 'NPV', value: '648.7 M DH', x: 5.1 },
+                { label: 'Payback', value: '4 Years', x: 7.4 }
+            ];
+            
+            kpis.forEach((kpi, i) => {
+                slide2.addShape(pptx.shapes.RECTANGLE, { x: kpi.x, y: 1.2, w: 2.1, h: 1.2, fill: { color: i % 2 === 0 ? PRIMARY : SECONDARY }, line: { color: PRIMARY, pt: 1 } });
+                slide2.addText(kpi.value, { x: kpi.x, y: 1.3, w: 2.1, h: 0.6, fontSize: 22, color: WHITE, bold: true, align: 'center' });
+                slide2.addText(kpi.label, { x: kpi.x, y: 1.9, w: 2.1, h: 0.4, fontSize: 11, color: WHITE, align: 'center' });
+            });
+
+            slide2.addText('Key Value Proposition:', { x: 0.5, y: 2.7, w: '90%', h: 0.4, fontSize: 14, color: PRIMARY, bold: true });
+            slide2.addText('• Integrated agro-industrial project on 500 hectares\n• 30,000-tonne cold storage capacity\n• Transformation products represent 59.3% of total revenue\n• Strategic location in Agropolis Meknès with excellent logistics', 
+                { x: 0.5, y: 3.1, w: '90%', h: 2, fontSize: 14, color: DARK, bullet: false });
+
+            // Slide 3: Project Overview
+            let slide3 = pptx.addSlide();
+            slide3.addText('Project Overview', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide3.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            // Location table
+            slide3.addText('Geographic Location', { x: 0.5, y: 1.2, w: '45%', h: 0.4, fontSize: 16, color: SECONDARY, bold: true });
+            slide3.addTable([
+                [{ text: 'Attribute', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Details', options: { fill: PRIMARY, color: WHITE, bold: true } }],
+                ['Industrial Site', 'Agropolis Meknès, Parcel GI07'],
+                ['Land Area', '6.16 ha (61,600 m²)'],
+                ['Agricultural Site', 'Sidi Slimane Moul Kifane & Majjate'],
+                ['Partner', 'MEDZ']
+            ], { x: 0.5, y: 1.6, w: 4.3, h: 1.5, fontSize: 11, border: { pt: 0.5, color: 'CCCCCC' } });
+
+            // Agricultural production
+            slide3.addText('Agricultural Production', { x: 5.2, y: 1.2, w: '45%', h: 0.4, fontSize: 16, color: SECONDARY, bold: true });
+            slide3.addTable([
+                [{ text: 'Crop', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Area (ha)', options: { fill: PRIMARY, color: WHITE, bold: true } }],
+                ['Onion', '400'],
+                ['Garlic', '100'],
+                [{ text: 'Total', options: { bold: true } }, { text: '500', options: { bold: true } }]
+            ], { x: 5.2, y: 1.6, w: 4.3, h: 1.2, fontSize: 11, border: { pt: 0.5, color: 'CCCCCC' } });
+
+            // Strategic advantages
+            slide3.addText('Strategic Advantages', { x: 0.5, y: 3.5, w: '90%', h: 0.4, fontSize: 16, color: SECONDARY, bold: true });
+            slide3.addText('• Direct access to Rabat-Fès highway\n• Connectivity via National Route N°6\n• Proximity to École Nationale d\'Agriculture & INRA\n• Access to railway network & Fès-Saïs Airport', 
+                { x: 0.5, y: 3.9, w: '90%', h: 1.5, fontSize: 12, color: DARK });
+
+            // Slide 4: Investment Analysis
+            let slide4 = pptx.addSlide();
+            slide4.addText('Investment Analysis', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide4.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            slide4.addText('Total Investment: 294.04 M DH TTC', { x: 0.5, y: 1.1, w: '90%', h: 0.4, fontSize: 18, color: PRIMARY, bold: true });
+
+            slide4.addTable([
+                [{ text: 'Category', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Cost HT (DH)', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Cost TTC (DH)', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '% Total', options: { fill: PRIMARY, color: WHITE, bold: true } }],
+                ['Technical Studies & Consulting', '4,200,000', '5,040,000', '1.7%'],
+                ['Agro-Industry', '177,837,000', '213,404,400', '72.6%'],
+                ['Agricultural Production', '63,000,000', '75,600,000', '25.7%'],
+                [{ text: 'TOTAL', options: { bold: true, fill: LIGHT } }, { text: '245,037,000', options: { bold: true, fill: LIGHT } }, { text: '294,044,400', options: { bold: true, fill: LIGHT } }, { text: '100%', options: { bold: true, fill: LIGHT } }]
+            ], { x: 0.5, y: 1.6, w: 9, h: 1.8, fontSize: 12, border: { pt: 0.5, color: 'CCCCCC' } });
+
+            slide4.addText('Key Industrial Investments:', { x: 0.5, y: 3.6, w: '90%', h: 0.3, fontSize: 14, color: SECONDARY, bold: true });
+            slide4.addText('• Cold storage (30,000 T): 60 M DH\n• Industrial unit construction: 37.5 M DH\n• Powder transformation line: 28 M DH\n• Energy infrastructure: 8 M DH', 
+                { x: 0.5, y: 3.9, w: 4.5, h: 1.5, fontSize: 11, color: DARK });
+            slide4.addText('• Packaging equipment: 7 M DH\n• Chips line: 6.4 M DH\n• Admin/Lab/Software: 4.77 M DH\n• Machinery: 3.7 M DH', 
+                { x: 5, y: 3.9, w: 4.5, h: 1.5, fontSize: 11, color: DARK });
+
+            // Slide 5: Revenue Model
+            let slide5 = pptx.addSlide();
+            slide5.addText('Production & Revenue Model', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide5.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            slide5.addText('Annual Revenue: 282.85 M DH (Year 2+)', { x: 0.5, y: 1.1, w: '90%', h: 0.4, fontSize: 18, color: PRIMARY, bold: true });
+
+            slide5.addTable([
+                [{ text: 'Product', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Price (DH/T)', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Volume (T)', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Revenue (DH)', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '% Total', options: { fill: PRIMARY, color: WHITE, bold: true } }],
+                ['Onion powder', '110,000', '1,440', '158,400,000', '56.0%'],
+                ['Fresh onion - Export', '8,000', '9,600', '76,800,000', '27.2%'],
+                ['Fresh garlic - Local', '30,000', '850', '25,500,000', '9.0%'],
+                ['Fresh onion - Local', '2,000', '6,400', '12,800,000', '4.5%'],
+                ['Garlic powder', '110,000', '85', '9,350,000', '3.3%'],
+                [{ text: 'TOTAL', options: { bold: true, fill: LIGHT } }, '', '', { text: '282,850,000', options: { bold: true, fill: LIGHT } }, { text: '100%', options: { bold: true, fill: LIGHT } }]
+            ], { x: 0.5, y: 1.6, w: 9, h: 2.2, fontSize: 11, border: { pt: 0.5, color: 'CCCCCC' } });
+
+            slide5.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 4, w: 9, h: 1, fill: { color: 'E8F5E9' }, line: { color: SECONDARY, pt: 2 } });
+            slide5.addText('Key Insight: Transformation products (powder) represent 59.3% of total revenue despite using only 50% of raw production, demonstrating significant value addition.', 
+                { x: 0.7, y: 4.1, w: 8.6, h: 0.8, fontSize: 12, color: DARK });
+
+            // Slide 6: Cost Structure
+            let slide6 = pptx.addSlide();
+            slide6.addText('Cost Structure', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide6.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            slide6.addText('Total Annual Operating Costs: 66.6 M DH', { x: 0.5, y: 1.1, w: '90%', h: 0.4, fontSize: 18, color: PRIMARY, bold: true });
+
+            // Cost boxes
+            const costs = [
+                { label: 'Agricultural\nProduction', value: '24.5 M DH', pct: '36.8%', x: 0.5 },
+                { label: 'Industrial\nProcessing', value: '38.9 M DH', pct: '58.4%', x: 3.5 },
+                { label: 'Fixed\nOverhead', value: '3.2 M DH', pct: '4.9%', x: 6.5 }
+            ];
+
+            costs.forEach((cost, i) => {
+                slide6.addShape(pptx.shapes.RECTANGLE, { x: cost.x, y: 1.6, w: 2.7, h: 1.3, fill: { color: i === 1 ? SECONDARY : PRIMARY } });
+                slide6.addText(cost.value, { x: cost.x, y: 1.7, w: 2.7, h: 0.5, fontSize: 20, color: WHITE, bold: true, align: 'center' });
+                slide6.addText(cost.label, { x: cost.x, y: 2.2, w: 2.7, h: 0.5, fontSize: 11, color: WHITE, align: 'center' });
+                slide6.addText(cost.pct, { x: cost.x, y: 2.65, w: 2.7, h: 0.25, fontSize: 10, color: WHITE, align: 'center' });
+            });
+
+            slide6.addText('Human Resources: 80 employees', { x: 0.5, y: 3.2, w: '90%', h: 0.3, fontSize: 14, color: SECONDARY, bold: true });
+            slide6.addTable([
+                [{ text: 'Position', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Headcount', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Annual Cost (DH)', options: { fill: PRIMARY, color: WHITE, bold: true } }],
+                ['Permanent workers', '67', '2,000,000'],
+                ['Technicians', '8', '72,000'],
+                ['Engineers & executives', '5', '150,000'],
+                [{ text: 'Total', options: { bold: true } }, { text: '80', options: { bold: true } }, { text: '2,222,000', options: { bold: true } }]
+            ], { x: 0.5, y: 3.5, w: 6, h: 1.5, fontSize: 11, border: { pt: 0.5, color: 'CCCCCC' } });
+
+            // Slide 7: Financial Performance
+            let slide7 = pptx.addSlide();
+            slide7.addText('Financial Performance', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide7.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            // Key metrics
+            const metrics = [
+                { label: 'IRR', value: '24%', x: 0.5, color: SECONDARY },
+                { label: 'NPV', value: '648.7 M DH', x: 2.8, color: PRIMARY },
+                { label: 'Payback', value: '4 Years', x: 5.1, color: SECONDARY },
+                { label: 'Net Margin', value: '44.6%', x: 7.4, color: PRIMARY }
+            ];
+
+            metrics.forEach((m) => {
+                slide7.addShape(pptx.shapes.RECTANGLE, { x: m.x, y: 1.1, w: 2.1, h: 1.1, fill: { color: m.color } });
+                slide7.addText(m.value, { x: m.x, y: 1.2, w: 2.1, h: 0.6, fontSize: 22, color: WHITE, bold: true, align: 'center' });
+                slide7.addText(m.label, { x: m.x, y: 1.75, w: 2.1, h: 0.35, fontSize: 12, color: WHITE, align: 'center' });
+            });
+
+            slide7.addText('10-Year Cash Flow Summary', { x: 0.5, y: 2.4, w: '90%', h: 0.3, fontSize: 14, color: SECONDARY, bold: true });
+            slide7.addTable([
+                [{ text: 'Year', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '0', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '1', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '2', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '3', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '4', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '5-10', options: { fill: PRIMARY, color: WHITE, bold: true } }],
+                ['Cash Flow (M)', '-294', '-66.5', '148.4', '148.4', '148.4', '148.4/yr'],
+                ['Cumul. DCF (M)', '-294', '-360.6', '-220.5', '-88.5', { text: '36.1', options: { fill: 'C8E6C9' } }, '648.7']
+            ], { x: 0.5, y: 2.7, w: 9, h: 1, fontSize: 11, border: { pt: 0.5, color: 'CCCCCC' } });
+
+            slide7.addText('Profitability Ratios', { x: 0.5, y: 4, w: '90%', h: 0.3, fontSize: 14, color: SECONDARY, bold: true });
+            slide7.addText('• Gross Margin: 77.6%    • Operating Margin: 76.5%    • ROI: 42.9%    • Cost/Revenue: 22.4%', 
+                { x: 0.5, y: 4.3, w: '90%', h: 0.5, fontSize: 12, color: DARK });
+
+            // Slide 8: Financing & Incentives
+            let slide8 = pptx.addSlide();
+            slide8.addText('Financing Structure', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide8.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            slide8.addText('Capital Structure', { x: 0.5, y: 1.2, w: '45%', h: 0.4, fontSize: 16, color: SECONDARY, bold: true });
+            slide8.addTable([
+                [{ text: 'Source', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Amount (DH)', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: '%', options: { fill: PRIMARY, color: WHITE, bold: true } }],
+                ['Equity', '58,808,880', '20%'],
+                ['Debt', '235,235,520', '80%'],
+                [{ text: 'Total', options: { bold: true } }, { text: '294,044,400', options: { bold: true } }, { text: '100%', options: { bold: true } }]
+            ], { x: 0.5, y: 1.6, w: 5, h: 1.3, fontSize: 12, border: { pt: 0.5, color: 'CCCCCC' } });
+
+            slide8.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 3.2, w: 9, h: 1.2, fill: { color: 'E8F5E9' }, line: { color: SECONDARY, pt: 2 } });
+            slide8.addText('🏛️ Government Incentive', { x: 0.7, y: 3.3, w: 8.6, h: 0.4, fontSize: 16, color: SECONDARY, bold: true });
+            slide8.addText('16% of total investment (~47 M DH) will be reimbursed upon project completion', { x: 0.7, y: 3.7, w: 8.6, h: 0.5, fontSize: 14, color: DARK });
+
+            // Slide 9: Risk Assessment
+            let slide9 = pptx.addSlide();
+            slide9.addText('Risk Assessment', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide9.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            slide9.addTable([
+                [{ text: 'Assumption', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Value', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Risk', options: { fill: PRIMARY, color: WHITE, bold: true } }, { text: 'Commentary', options: { fill: PRIMARY, color: WHITE, bold: true } }],
+                ['Onion yield', '80 T/ha', { text: 'Medium', options: { fill: 'FFF3CD' } }, 'Industry avg: 40-60 T/ha'],
+                ['Garlic yield', '17 T/ha', { text: 'Low', options: { fill: 'C8E6C9' } }, 'Reasonable for irrigated'],
+                ['Powder price', '110,000 DH/T', { text: 'High', options: { fill: 'FFCDD2' } }, 'Needs market validation'],
+                ['Full capacity Y2', '100%', { text: 'High', options: { fill: 'FFCDD2' } }, 'Aggressive assumption']
+            ], { x: 0.5, y: 1.1, w: 9, h: 1.8, fontSize: 11, border: { pt: 0.5, color: 'CCCCCC' } });
+
+            slide9.addText('Key Risk Categories:', { x: 0.5, y: 3.1, w: '90%', h: 0.3, fontSize: 14, color: SECONDARY, bold: true });
+            slide9.addText('Market Risks: Price volatility, export access, competition, currency\nOperational Risks: Weather, pests, water availability, labor\nFinancial Risks: High leverage (80%), Year 1 loss, working capital', 
+                { x: 0.5, y: 3.4, w: '90%', h: 1.2, fontSize: 12, color: DARK });
+
+            slide9.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 4.3, w: 9, h: 0.8, fill: { color: 'FFEBEE' }, line: { color: 'DC3545', pt: 2 } });
+            slide9.addText('⚠️ Missing: Debt service schedule, sensitivity analysis, market validation, offtake agreements', 
+                { x: 0.7, y: 4.4, w: 8.6, h: 0.6, fontSize: 11, color: 'C62828' });
+
+            // Slide 10: Recommendations
+            let slide10 = pptx.addSlide();
+            slide10.addText('Recommendations', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide10.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            slide10.addText('For Investors (High Priority):', { x: 0.5, y: 1.1, w: '90%', h: 0.3, fontSize: 14, color: PRIMARY, bold: true });
+            slide10.addText('• Request detailed debt service schedule\n• Validate powder pricing with market study\n• Request sensitivity analysis on key variables', 
+                { x: 0.5, y: 1.4, w: '90%', h: 0.8, fontSize: 12, color: DARK });
+
+            slide10.addText('For Project Sponsors:', { x: 0.5, y: 2.2, w: '90%', h: 0.3, fontSize: 14, color: SECONDARY, bold: true });
+            slide10.addText('• Secure pre-sales agreements for powder\n• Obtain water rights and permits\n• Establish quality certifications (GlobalGAP, ISO)', 
+                { x: 0.5, y: 2.5, w: '90%', h: 0.8, fontSize: 12, color: DARK });
+
+            slide10.addText('Strategic Opportunities:', { x: 0.5, y: 3.3, w: '90%', h: 0.3, fontSize: 14, color: PRIMARY, bold: true });
+            slide10.addText('• Storage-as-a-service from 30,000T facility\n• Retail packaging for higher margins\n• EU market with certifications\n• Solar energy for cost reduction', 
+                { x: 0.5, y: 3.6, w: '90%', h: 1, fontSize: 12, color: DARK });
+
+            // Slide 11: Conclusion
+            let slide11 = pptx.addSlide();
+            slide11.addText('Conclusion', { x: 0.5, y: 0.3, w: '90%', h: 0.6, fontSize: 32, color: PRIMARY, bold: true });
+            slide11.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 0.9, w: 2, h: 0.05, fill: { color: PRIMARY } });
+
+            // Strengths box
+            slide11.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 1.1, w: 4.3, h: 2.2, fill: { color: 'E8F5E9' }, line: { color: SECONDARY, pt: 2 } });
+            slide11.addText('✓ Strengths', { x: 0.7, y: 1.2, w: 3.9, h: 0.4, fontSize: 16, color: SECONDARY, bold: true });
+            slide11.addText('• Strategic location\n• Integrated value chain\n• Strong returns (24% IRR)\n• Diversified revenue\n• Government support (16%)', 
+                { x: 0.7, y: 1.6, w: 3.9, h: 1.6, fontSize: 11, color: DARK });
+
+            // Challenges box
+            slide11.addShape(pptx.shapes.RECTANGLE, { x: 5.2, y: 1.1, w: 4.3, h: 2.2, fill: { color: 'FFF3E0' }, line: { color: 'FF9800', pt: 2 } });
+            slide11.addText('⚠ Challenges', { x: 5.4, y: 1.2, w: 3.9, h: 0.4, fontSize: 16, color: 'E65100', bold: true });
+            slide11.addText('• High capital (294M DH)\n• Aggressive assumptions\n• Price validation needed\n• High leverage (80%)', 
+                { x: 5.4, y: 1.6, w: 3.9, h: 1.6, fontSize: 11, color: DARK });
+
+            // Overall assessment
+            slide11.addShape(pptx.shapes.RECTANGLE, { x: 0.5, y: 3.5, w: 9, h: 1.3, fill: { color: 'E3F2FD' }, line: { color: '1976D2', pt: 2 } });
+            slide11.addText('Overall Assessment', { x: 0.7, y: 3.6, w: 8.6, h: 0.4, fontSize: 14, color: '1565C0', bold: true });
+            slide11.addText('The project is financially viable with attractive returns. Success depends on achieving projected yields and securing market access for transformed products. Recommend milestone-based investment tranches.', 
+                { x: 0.7, y: 4, w: 8.6, h: 0.7, fontSize: 12, color: DARK });
+
+            // Slide 12: Thank You
+            let slide12 = pptx.addSlide();
+            slide12.addShape(pptx.shapes.RECTANGLE, { x: 0, y: 0, w: '100%', h: '100%', fill: { color: PRIMARY } });
+            slide12.addText('Thank You', { x: 0.5, y: 2, w: '90%', h: 1, fontSize: 48, color: WHITE, bold: true, align: 'center' });
+            slide12.addText('Cherry Hill of Morocco\nBusiness Plan Analysis', { x: 0.5, y: 3.2, w: '90%', h: 0.8, fontSize: 20, color: WHITE, align: 'center' });
+            slide12.addText('For questions or additional information, please contact the analysis team.', { x: 0.5, y: 4.3, w: '90%', h: 0.5, fontSize: 14, color: WHITE, align: 'center' });
+
+            // Save the presentation
+            pptx.writeFile({ fileName: 'Cherry_Hill_Morocco_Analysis.pptx' })
+                .then(() => {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                    showToast('Presentation downloaded! Import to Google Slides via File > Import slides');
+                })
+                .catch(err => {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                    alert('Error generating presentation: ' + err);
+                });
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
